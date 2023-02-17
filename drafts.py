@@ -1,6 +1,7 @@
 from random import choice
 from typing import Tuple
 from geopy.geocoders import Nominatim
+import datetime as dt
 
 
 places = ['Бенджамин', 'Фуджи', 'Комод']
@@ -66,3 +67,16 @@ def show_place_to_go(places) -> str:
     
     return 'везде уже были'
 
+
+def get_month_from_data(date:str) -> int:  
+    '''
+    retrieve month number. Extract it from date="11.02.2019"
+    '''
+    date_format = '%d.%m.%Y'
+    date = dt.datetime.strptime(date, date_format)  #2019-11-08 00:00:00
+    month = date.month
+    return month  #2
+
+
+# data = '17.02.2023'
+# print(get_month_from_data(data))
